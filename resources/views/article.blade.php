@@ -25,7 +25,7 @@
         <div align="right">
             @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isAdmin())
 
-                {!! Form::open(['url' => 'article/'.$article->id, 'method'=>'delete']) !!}
+                {!! Form::open(['url' => 'article/'.$article->id, 'method'=>'delete', 'style' => 'margin-right: 120px; margin-bottom: -36px;']) !!}
                 {{ Form::submit('Delete x', ['class' => 'btn']) }}
                 {!! Form::close() !!}
 
