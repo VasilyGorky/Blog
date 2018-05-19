@@ -73,7 +73,7 @@ class ArticlesController extends Controller
     /**
      * Store a newly created resource in storage.
      * Метод добавления статьи в базу данных с валидацией полей
-     * делает redirect в route index, выбрасывается HttpException с кодом 404
+     * делает redirect в route article.index, выбрасывается HttpException с кодом 404
      * если view addFormArticle не существует
      * @return \Illuminate\Http\RedirectResponse
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
@@ -154,7 +154,7 @@ class ArticlesController extends Controller
     /**
      * Update the specified resource in storage.
      * Метод редактирования модели статьи выбранной из базы данных по $id с валидацией полей,
-     * делает перенаправление в route read по $id,
+     * делает перенаправление в route article.show по $id,
      * Если view editFormArticle не существует, то выбрасывается HttpException с кодом 404.
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
