@@ -13,6 +13,7 @@
 
 Route::get('/', 'ArticlesController@index');
 Route::resource('article', 'ArticlesController');
+Route::resource('article', 'ArticlesController')->only(['create', 'store', 'edit', 'update', 'destroy'])->middleware('authadmin');
 //Маршрут для подтверждения регистрации по e-mail
 Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
 
