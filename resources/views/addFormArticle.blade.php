@@ -28,7 +28,7 @@
                 @endif
 
 
-                {!! Form::open(['route'=>'article.store','method' => 'post']) !!}
+                {!! Form::open(['route'=>'articles.store','method' => 'post']) !!}
                 @csrf
                 {{ Form::label('title','Title:') }}
                 {{ Form::text('title','', ['required' => 'required', 'class' => 'form-control']) }}<br>

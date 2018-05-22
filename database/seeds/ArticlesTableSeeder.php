@@ -1,7 +1,9 @@
 <?php
 
 use App\Article;
+use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ArticlesTableSeeder extends Seeder
 {
@@ -12,12 +14,11 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
-        $article = new Article();
-        $article->truncate();
+        DB::table('articles')->truncate();
 
-        $faker = \Faker\Factory::create();
+        $faker = Factory::create();
         for ($i = 0; $i < 20; $i++) {
-            $article->create([
+            DB::table('articles')->insert([
                 'title' => $faker->realText(50),
                 'description' => $faker->realText(100),
                 'text' => $faker->realText(2000)

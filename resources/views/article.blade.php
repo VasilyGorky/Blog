@@ -12,7 +12,7 @@
                 </ul>
             </div>
         @endif
-        <p><a class="btn btn-default" href="{{ url('/') }}" role="button">&laquo; Back</a></p>
+        <p><a class="btn btn-default" href="{{ url('/articles') }}" role="button">&laquo; Back</a></p>
         <div>
             <div>
                 <h2 style="border-bottom: 1px solid #d6d8db">{{$article->description}}</h2><br>
@@ -26,11 +26,11 @@
             @if(\Illuminate\Support\Facades\Auth::check() && \Illuminate\Support\Facades\Auth::user()->isAdmin())
 
 
-                {!! Form::open(['url' => 'article/'.$article->id, 'method'=>'delete', 'style' => 'margin-right: 120px; margin-bottom: -36px;']) !!}
+                {!! Form::open(['url' => 'articles/'.$article->id, 'method'=>'delete', 'style' => 'margin-right: 120px; margin-bottom: -36px;']) !!}
                 {{ Form::submit('Delete x', ['class' => 'btn']) }}
                 {!! Form::close() !!}
 
-                {!! Form::open(['url' => 'article/'.$article->id.'/edit', 'method'=>'get']) !!}
+                {!! Form::open(['url' => 'articles/'.$article->id.'/edit', 'method'=>'get']) !!}
                 {{ Form::submit('Edit article', ['class' => 'btn']) }}
                 {!! Form::close() !!}
 

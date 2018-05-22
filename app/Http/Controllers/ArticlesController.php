@@ -85,7 +85,7 @@ class ArticlesController extends Controller
                 $validator = $this->validateFieldsArticle();
 
                 if ($validator->fails()) {
-                    return redirect()->route('article.create')->withErrors($validator)->withInput();
+                    return redirect()->route('articles.create')->withErrors($validator)->withInput();
                 }
 
                 $this->article->create
@@ -94,7 +94,7 @@ class ArticlesController extends Controller
                     'text' => $this->request->input('text'),
                     'description' => $this->request->input('description'),
                 ]);
-                return redirect()->route('article.index');
+                return redirect()->route('articles.index');
             }
         }
         abort(404);
@@ -128,7 +128,7 @@ class ArticlesController extends Controller
     {
         $article = $this->article->find($id);
         $article->delete();
-        return redirect()->route('article.index');
+        return redirect()->route('articles.index');
     }
 
     /**
@@ -168,7 +168,7 @@ class ArticlesController extends Controller
                 $validator = $this->validateFieldsArticle();
 
                 if ($validator->fails()) {
-                    return redirect()->route('article.edit', $id)->withErrors($validator)->withInput();
+                    return redirect()->route('articles.edit', $id)->withErrors($validator)->withInput();
                 }
 
                 $this->article->fill($input);
@@ -178,7 +178,7 @@ class ArticlesController extends Controller
                     'description' => $input['description'],
                     'text' => $input['text'],
                 ]);
-                return redirect()->route('article.show', $id);
+                return redirect()->route('articles.show', $id);
             }
         }
         abort(404);

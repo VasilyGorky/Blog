@@ -26,7 +26,7 @@
                     </div>
                 @endif
 
-                {!! Form::open(['url'=>['article/'.$data['id']],'method' => 'put']) !!}
+                {!! Form::open(['url'=>['articles/'.$data['id']],'method' => 'put']) !!}
                 @csrf
                 {{ Form::label('title','Title:') }}
                 {{ Form::text('title',$data['title'], ['required' => 'required', 'class' => 'form-control']) }}<br>

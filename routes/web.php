@@ -11,9 +11,19 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', 'ArticlesController@index');
-Route::resource('article', 'ArticlesController');
-Route::resource('article', 'ArticlesController')->only(['create', 'store', 'edit', 'update', 'destroy'])->middleware('authadmin');
+Route::resource('articles', 'ArticlesController');
+Route::resource('articles', 'ArticlesController')
+    ->only(['create', 'store', 'edit', 'update', 'destroy'])->middleware('authadmin');
+
+Route::group(['prefix' => 'api'], function () {
+    Route::resource('article', 'ArticlesApiController')->except(['store', 'update', 'destroy']);
+    Route::group(['middleware' => 'authApiAdmin'], function () {
+        Route::resource('article', 'ArticlesApiController', ['only' => ['store', 'update', 'destroy']]);
+    });
+});
 //Маршрут для подтверждения регистрации по e-mail
 Route::get('register/confirm/{token}', 'Auth\RegisterController@confirmEmail');
 
